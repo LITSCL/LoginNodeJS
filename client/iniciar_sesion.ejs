@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="formulario-iniciar-sesion">
+        <h1>Iniciar Sesión</h1>
+        <form action="autenticacion" method="POST">
+            <input type="text" name="correo" placeholder="Correo" required>
+            <input type="password" name="clave" placeholder="Contraseña" required>
+            <input class="boton-iniciar-sesion" type="submit" value="Iniciar Sesión">
+        </form>
+        <a class="boton-registrarse" href="registrarse">Registrarse</a>
+    </div>
+    <% 
+    if (typeof alerta != "undefined") { 
+    %>
+        <script>
+            Swal.fire({
+                title: "<%=titulo%>",
+                text: "<%=mensaje%>",
+                icon: "<%=icono%>",
+                showConfirmButton: "<%=mostrarBotonConfirmacion%>",
+                timer: "<%=tiempo%>"
+            }).then(() => {
+                window.location = "<%=ruta%>"
+            });
+        </script>
+    <%
+    }
+    %>
+</body>
+</html>

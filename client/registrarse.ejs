@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <div class="formulario-registrarse">
+        <h1>Registrarse</h1>
+        <form action="usuario-save" method="POST">
+            <label for="correo">Correo</label>
+            <input type="text" name="correo" required>
+            <label for="clave">Contraseña</label>
+            <input type="password" name="clave" required>
+            <label for="tipo">Tipo</label>
+            <select class="selector-tipo" name="tipo">
+                <option value="Cliente">Cliente</option>
+                <option value="Administrador">Administrador</option>
+            </select>
+            <div style="display: inline;">
+                <input class="boton-guardar" type="submit" value="Registrarse">
+                <a class="boton-cancelar" href="/">Cancelar</a>
+            </div>
+        </form>
+    </div>
+    <% 
+    if (typeof alerta != "undefined") { 
+    %>
+        <script>
+            Swal.fire({
+                title: "<%=titulo%>",
+                text: "<%=mensaje%>",
+                icon: "<%=icono%>",
+                showConfirmButton: "<%=mostrarBotonConfirmacion%>",
+                timer: "<%=tiempo%>"
+            }).then(() => {
+                window.location = "<%=ruta%>"
+            });
+        </script>
+    <%
+    }
+    %>
+</body>
+</html>
